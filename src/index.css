@@ -49,8 +49,12 @@
     filter: invert(1) brightness(2);
   }
 }
+body {
+  margin: 0;
+}
 
 #root {
   width: 1126px;
   max-width: 100%;
+  margin: 0 auto;
 }
