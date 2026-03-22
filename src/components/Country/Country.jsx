@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-const Country = ({country, handleVisitedCountries}) => {
+const Country = ({country, handleVisitedCountries, handleVisitedFlag}) => {
     const [visited, setVisited] = useState(false);
+    // const [visitedFlugs, setvisitedFlugs] = useState()
 
     // console.log(handleVisitedCountries)
     const handleVisited = () => {
@@ -18,8 +19,15 @@ const Country = ({country, handleVisitedCountries}) => {
         
         // or this way toggle
         setVisited(!visited);
+
+        // handle visited country and flag
         handleVisitedCountries(country);
+        // handleVisitedFlag(country);
     }
+
+    // const handleVisitedFlugs = () => {
+    //     console.log('Flugs Btn Clicked')
+    // }
     
     // console.log(country)
     return (
@@ -31,6 +39,15 @@ const Country = ({country, handleVisitedCountries}) => {
 
             {/* Button */}
             <button onClick={handleVisited} style={{  padding: "10px 18px", borderRadius: "10px" }}>{visited ? 'Visited' : 'Not Visited'}</button>
+
+            <button 
+                style={{ backgroundColor: '#202020', marginLeft: "8px", padding: "10px 18px", borderRadius: "10px" }}
+                onClick={() => {
+                    handleVisitedFlag(country.flags?.flags?.svg);
+                }}
+            >
+                Visited Flugs
+            </button>
         </div>
     );
 };
